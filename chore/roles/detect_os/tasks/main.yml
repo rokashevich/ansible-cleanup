@@ -1,0 +1,7 @@
+---
+- name: "Setup"
+  setup:
+    gather_subset: distribution
+- name: "Set fact: os"
+  set_fact:
+    os: "{{ansible_facts.distribution}}"

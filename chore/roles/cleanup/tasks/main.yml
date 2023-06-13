@@ -1,2 +1,23 @@
 ---
-# tasks file for cleanup
+- include_role:
+    name: detect_os
+
+- name: "Common"
+  block:
+  - debug:
+      msg: "common cleanup"
+    changed_when: True
+
+- name: "Debian only"
+  when: os == "Debian"
+  block:
+  - debug:
+      msg: "debian cleanup"
+    changed_when: True
+
+- name: "Alpine only"
+  when: os == "Alpine"
+  block:
+  - debug:
+      msg: "alpine cleanup"
+    changed_when: True
